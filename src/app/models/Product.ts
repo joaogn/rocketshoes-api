@@ -38,8 +38,10 @@ Product.addHook('afterFind', async (products: any) => {
         product.image = product.file.url;
       }
     });
-  } else if (products.file) {
-    products.image = products.file.url;
+  } else if (products) {
+    if (products.file) {
+      products.image = products.file.url;
+    }
   }
 });
 
