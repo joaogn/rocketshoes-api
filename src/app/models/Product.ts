@@ -34,8 +34,12 @@ Product.init(
 Product.addHook('afterFind', async (products: any) => {
   if (Array.isArray(products)) {
     products.forEach(product => {
-      product.image = product.file.url;
+      if (product.file) {
+        product.image = product.file.url;
+      }
     });
+  } else if (products.file) {
+    products.image = products.file.url;
   }
 });
 

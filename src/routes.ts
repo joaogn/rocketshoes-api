@@ -4,6 +4,8 @@ import multerConfig from './config/multer';
 
 import ProductsController from './app/controllers/ProductsController';
 import FileController from './app/controllers/FileController';
+import StockController from './app/controllers/StockController';
+import DetailController from './app/controllers/DetailController';
 
 import {
   ProductStoreValidation,
@@ -23,5 +25,9 @@ routes.put(
   ProductsController.update
 );
 routes.delete('/products/:productId', ProductsController.delete);
+
+routes.get('/products/:productId', DetailController.index);
+
+routes.get('/stock/:productId', StockController.index);
 
 export default routes;
